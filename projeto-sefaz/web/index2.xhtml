@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Projeto Sefaz</title>
+    </h:head>
+        
+    <h:body>
+        <!--
+        <h:form>
+            <p:panelGrid columns="2">
+                <h:outputLabel for="login" value="Login"></h:outputLabel>
+                <p:inputText id="login"></p:inputText>
+                <h:outputLabel for="senha" value="Senha"></h:outputLabel>
+                <p:inputText id="senha"></p:inputText>
+                <p:commandButton value="Entrar"></p:commandButton>
+            </p:panelGrid> 
+        </h:form>
+       
+        <p:menubar>
+            <p:menuitem value="Adicionar Usuário" url="adicionar-usuario.xhtml"></p:menuitem>
+        </p:menubar>
+         -->
+         <h:form>
+            <p:panelGrid columns="2">                
+                <h:outputLabel for="nome" value="Nome"></h:outputLabel>
+                <p:inputText id="nome" value="#{controlaUsuarios.usuario.nome}"></p:inputText>
+                <h:outputLabel for="email" value="Email"></h:outputLabel>
+                <p:inputText id="email" value="#{controlaUsuarios.usuario.email}"></p:inputText>
+                <h:outputLabel for="senha" value="Senha"></h:outputLabel>
+                <p:inputText id="senha" value="#{controlaUsuarios.usuario.senha}"></p:inputText>
+                <h:outputLabel for="telefone" value="Telefone"></h:outputLabel>
+                <p:inputText id="ddd" maxlength="2" size="2" value="#{controlaUsuarios.usuario.ddd}">DDD </p:inputText>
+                <br></br>
+                <p:inputText id="numero" maxlength="10" size="10" value="#{controlaUsuarios.usuario.numero}">Número </p:inputText>
+                <br></br>
+                <p:inputText id="tipo" value="#{controlaUsuarios.usuario.tipo_telefone}">Tipo </p:inputText>
+                <p:commandButton value="Adicionar" action="#{controlaUsuarios.adicionarUsuario()}" update="@form"></p:commandButton>
+                <p:commandButton value="Listar" action="#{controlaUsuarios.Listar()}" update="@form"></p:commandButton>
+            </p:panelGrid> 
+            <p:dataTable value="#{controlaUsuarios.listaUsuario}" var="user">
+                <p:column headerText="Nome">
+                    <h:outputLabel value="#{user.nome}"></h:outputLabel>
+                </p:column>
+                <p:column headerText="Email">
+                    <h:outputLabel value="#{user.email}"></h:outputLabel>
+                </p:column>
+                <p:column headerText="Senha">
+                    <h:outputLabel value="#{user.senha}"></h:outputLabel>
+                </p:column>
+                <p:column headerText="Telefone">
+                    <h:outputLabel value="#{user.ddd}"></h:outputLabel>
+                    <h:outputLabel value="#{user.numero}"></h:outputLabel>
+                    <h:outputLabel value="#{user.tipo_telefone}"></h:outputLabel>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>
+
